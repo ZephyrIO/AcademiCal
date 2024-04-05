@@ -2,6 +2,7 @@
 import {useState} from 'react';
 import AddEvent from "@/components/AddEvent";
 import EventList from "@/components/EventList";
+import Header from '@/components/Header';
 
 export default function AddEventView() {
     const [events, setEvents] = useState([]);
@@ -13,8 +14,9 @@ export default function AddEventView() {
 
     return (
         <div>
-        <AddEvent onAdd={addEventHandler} />
-        <EventList events={events} />
+            <Header />
+            <AddEvent onAdd={addEventHandler} />
+            <EventList events={events} />
         </div>
     );
 
