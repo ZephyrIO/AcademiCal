@@ -8,6 +8,7 @@ const EventList = (props) => {
                 <Event 
                     key={event.id}
                     title = {event.title}
+                    date = {event.date}
                     description = {event.description}
                     image = {event.image}
                 />
