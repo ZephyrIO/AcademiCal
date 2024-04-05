@@ -13,8 +13,9 @@ export default function AddEventView() {
 
     return (
         <div>
-        <AddEvent onAdd={addEventHandler} />
-        <EventList events={events} />
+            <Header />
+            <AddEvent onAdd={addEventHandler} />
+            <EventList events={events} />
         </div>
     );
 
