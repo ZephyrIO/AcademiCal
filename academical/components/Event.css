@@ -1,0 +1,5 @@
+.event-list-image {
+    width: 150; 
+    height: 150px; 
+    object-fit: cover; 
+}

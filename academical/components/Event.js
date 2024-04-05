@@ -1,4 +1,5 @@
 import React from "react";
+import "./Event.css";
 const event = (event) => {
 
     const EventDate = (event) => {new Date(event.date).toLocaleDateString('en-US', {

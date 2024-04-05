@@ -3,17 +3,19 @@ import Card from "./Card";
 import Event from "./Event";
 const EventList = (props) => {
     return (
-        <Card className="event-list">
-            {props.events.map(event => (
-                <Event 
-                    key={event.id}
-                    title = {event.title}
-                    date = {event.date}
-                    description = {event.description}
-                    image = {event.image}
-                />
-            ))}
-        </Card>
+        <>
+            {props.events.map((event) => (
+                    <Card className="event">
+                    <Event 
+                        key={event.id}
+                        title = {event.title}
+                        date = {event.date}
+                        description = {event.description}
+                        image = {event.image}
+                    />
+                    </Card>
+                ))}
+            </>
     );
 };
 
