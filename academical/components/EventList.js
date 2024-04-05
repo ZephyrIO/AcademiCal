@@ -1,16 +1,18 @@
 import React from "react";
 
-const EventList = ({events}) => {
+const EventList = ({event}) => {
     return (
         <Card className="event-list">
-            {events && events.map(event => (
+            {event && event.map(event => (
                 <Event 
-                    id={events.id}
-                    title = {events.title}
-                    description = {events.description}
-                    img = {events.img}
+                    id={event.id}
+                    title = {event.title}
+                    description = {event.description}
+                    image = {event.image}
                 />
             ))}
         </Card>
     );
 };
+
+export default EventList;
