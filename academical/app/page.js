@@ -1,6 +1,7 @@
 'use client';
 import AddEvent from "@/components/AddEvent";
 import Button from "@/components/Button";
+import EventList from "@/components/EventList";
 import Header from "@/components/Header";
 import {useState} from 'react';
 import Link from 'next/link';
@@ -23,6 +24,7 @@ export default function Home() {
     return (
         <div>  
             <Header />
+            <EventList events={testEvent} />
             <Link href="/add-event"> <Button>Add Event</Button> </Link>
             <Link href="/delete-event"> <Button>Delete Event</Button> </Link>
         </div>
