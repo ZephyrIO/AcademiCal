@@ -1,5 +1,4 @@
 'use client';
-import AddEvent from "@/components/AddEvent";
 import Button from "@/components/Button";
 import EventList from "@/components/EventList";
 import Header from "@/components/Header";
