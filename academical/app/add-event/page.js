@@ -1,15 +1,21 @@
 'use client'
-import React from 'react';
+import {useState} from 'react';
 import AddEvent from "@/components/AddEvent";
+import EventList from "@/components/EventList";
 
 export default function AddEventView() {
 
     const addEventHandler = (event) => {
-        console.log(event);
+        setEvents([...events, event]);
+        
     }
-
+    const [events, setEvents] = useState([]);
     return (
-        <AddEvent onAdd={addEventHandler} />
-    )
+        <div>
+            <AddEvent onAdd={addEventHandler} />
+        <EventList events={events} />
+        </div>
+        
+    );
 
 }
