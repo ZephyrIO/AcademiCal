@@ -15,7 +15,9 @@ export default function Header(props) {
         <div className="header">
             <Link href="/calendar-view"> <Button>Calendar</Button> </Link>
             <h1 className="title">AcademiCal</h1>
-            {loggedIn ? <Button onClick={loginHandler}>Logout</Button> : <Button onClick={loginHandler}>Login</Button>}
+            {loggedIn ? 
+            <Link href="/"><Button onClick={loginHandler}>Logout</Button></Link> : 
+            <Button onClick={loginHandler}>Login</Button>}
         </div>
     );
 }
