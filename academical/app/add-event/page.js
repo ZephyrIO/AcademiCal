@@ -4,18 +4,18 @@ import AddEvent from "@/components/AddEvent";
 import EventList from "@/components/EventList";
 
 export default function AddEventView() {
+    const [events, setEvents] = useState([]);
 
     const addEventHandler = (event) => {
         setEvents([...events, event]);
         
-    }
-    const [events, setEvents] = useState([]);
+    };
+
     return (
         <div>
-            <AddEvent onAdd={addEventHandler} />
+        <AddEvent onAdd={addEventHandler} />
         <EventList events={events} />
         </div>
-        
     );
 
 }
