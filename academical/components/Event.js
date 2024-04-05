@@ -1,11 +1,11 @@
 import React from "react";
 const event = (event) => {
 
-    const EventDate = new Date(event.date).toLocaleDateString('en-US', {
+    const EventDate = (event) => {new Date(event.date).toLocaleDateString('en-US', {
         day: 'numeric',
         month: 'long',
         year: 'numeric'
-    });
+    })};
 
     return (
         <li key={event.id} className="event-list-item">
