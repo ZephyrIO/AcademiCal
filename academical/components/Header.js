@@ -1,13 +1,21 @@
+import React, {useState} from 'react';
 import Button from "./Button";
 import './Header.css';
+import Link from 'next/link';
 
-export default function Header(props)
-{
+export default function Header(props) {
+
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const loginHandler = () => {
+        setLoggedIn(!loggedIn);
+    };
+
     return (
         <div className="header">
-            <Button>Calendar</Button>
+            <Link href="/calendar-view"> <Button>Calendar</Button> </Link>
             <h1 className="title">AcademiCal</h1>
-            {props.authorized ? <Button>Logout</Button> : <Button>Login</Button>}
+            {loggedIn ? <Button onClick={loginHandler}>Logout</Button> : <Button onClick={loginHandler}>Login</Button>}
         </div>
     );
 }
