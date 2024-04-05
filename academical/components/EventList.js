@@ -1,9 +1,10 @@
 import React from "react";
+import Card from "./Card";
 
-const EventList = ({event}) => {
+const EventList = (props) => {
     return (
         <Card className="event-list">
-            {event && event.map(event => (
+            {props.events.map(event => (
                 <Event 
                     id={event.id}
                     title = {event.title}
