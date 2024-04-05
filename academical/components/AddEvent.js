@@ -33,7 +33,8 @@ const AddEvent = (props) => {
             description: enteredDescription,
             img: enteredImage
         }
-        props.onAdd(eventData);
+
+        console.log(eventData);
         setTitle('');
         setDate('');
         setDescription('');
@@ -72,7 +73,7 @@ const AddEvent = (props) => {
           onChange={setImageHandler}
         />
         
-        <Button type="submit">Add User</Button>
+        <Button type="submit" onClick={addEventHandler}>Add User</Button>
       </form>
         </Card>
     );
