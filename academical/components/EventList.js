@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-
+import Event from "./Event";
 const EventList = (props) => {
     return (
         <Card className="event-list">
