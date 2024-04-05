@@ -1,11 +1,12 @@
 import Button from "./Button";
+import './Header.css';
 
 export default function Header(props)
 {
     return (
-        <div>
+        <div className="header">
             <Button>Calendar</Button>
-            <h1>AcademiCal</h1>
+            <h1 className="title">AcademiCal</h1>
             {props.authorized ? <Button>Logout</Button> : <Button>Login</Button>}
         </div>
     );
