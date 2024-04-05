@@ -1,8 +1,11 @@
+'use client';
 import AddEvent from "@/components/AddEvent";
+import Button from "@/components/Button";
+import Header from "@/components/Header";
 import {useState} from 'react';
 
 
-function Home() {
+export default function Home() {
     const testEvent = [
         {
             id: '1',
@@ -18,9 +21,9 @@ function Home() {
         
     return (
         <div>  
-            <AddEvent onAdd={addEventHandler}/>
+            <Header />
+            <Button>Add Event</Button>
+            <Button>Delete Event</Button>
         </div>
-    );
-    
+    );   
 }
-export default Home;
