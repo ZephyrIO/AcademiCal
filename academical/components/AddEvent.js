@@ -4,6 +4,7 @@ import Card from './Card';
 import Button from './Button';
 import Header from './Header';
 import './AddEvent.css';
+import Link from 'next/link';
 
 const AddEvent = (props) => {
     const [enteredTitle, setTitle] = useState('');
@@ -44,7 +45,7 @@ const AddEvent = (props) => {
     }
     
     return (
-        <div class="add-event">
+        <div className="add-event">
             <Card>
                 <form onSubmit={addEventHandler}>
             <label>Title</label>
