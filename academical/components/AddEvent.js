@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import Card from './Card';
 import Button from './Button';
 import './AddEvent.css';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation'
 
 const AddEvent = (props) => {
     const [enteredTitle, setTitle] = useState('');
     const [enteredDate, setDate] = useState('');
     const [enteredDescription, setDescription] = useState('');
     const [enteredImage, setImage] = useState('');
+    const router = useRouter();
 
     const setTitleHandler = (event) => {
         setTitle(event.target.value);
@@ -41,6 +42,7 @@ const AddEvent = (props) => {
         setDate('');
         setDescription('');
         setImage('');
+        router.push('/');
     }
     
     return (
@@ -82,7 +84,7 @@ const AddEvent = (props) => {
                     onChange={setImageHandler}
                     />
 
-                    <Link href="/"> <Button onClick={addEventHandler} type="submit">Add Event</Button> </Link>
+                    <Button type="submit">Add Event</Button>
 
                 </form>
         </Card>
