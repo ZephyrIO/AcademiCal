@@ -6,12 +6,14 @@
     padding: 6rem;
     min-height: 100vh;
   }
-  button #AddEvent{
+  #add.button {
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    background-color: cornflowerblue;
   }
+
   
   

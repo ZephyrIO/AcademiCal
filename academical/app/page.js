@@ -35,13 +35,19 @@ export default function Home() {
     const addEventHandler = (event) => {
         setEvents([...events, event]);
     };
-        
+
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const loginHandler = () => {
+        setLoggedIn(!loggedIn);
+    };
+
     return (
         <div>  
-            <Header />
+            <Header loggedIn={loggedIn} loginHandler={loginHandler} />
             <EventList events={testEvents} />
-            <Link href="/add-event"> <Button>Add Event</Button> </Link>
-            <Link href="/delete-event"> <Button>Delete Event</Button> </Link>
+            <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
+            <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
         </div>
     );   
 }
