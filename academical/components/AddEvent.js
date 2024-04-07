@@ -4,7 +4,6 @@ import Card from './Card';
 import Button from './Button';
 import './AddEvent.css';
 import Link from 'next/link';
-import Link from 'next/link';
 
 const AddEvent = (props) => {
     const [enteredTitle, setTitle] = useState('');
