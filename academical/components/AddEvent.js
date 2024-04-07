@@ -44,7 +44,7 @@ const AddEvent = (props) => {
     }
     
     return (
-        <div>
+        <div class="add-event">
             <Card>
                 <form onSubmit={addEventHandler}>
             <label>Title</label>
@@ -76,9 +76,11 @@ const AddEvent = (props) => {
             onChange={setImageHandler}
             />
             
-            <Button type="submit" id="add" onClick={addEventHandler}>Add Event</Button>
+            
         </form>
-            </Card>
+        <Button type="submit" onClick={addEventHandler}>Add Event</Button>
+        </Card>
+            
         </div>
     );
 };
