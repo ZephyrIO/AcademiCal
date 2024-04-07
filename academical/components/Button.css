@@ -21,3 +21,10 @@
     background: #000000;
     color: #505050;
   }
+  .main button{
+    margin: auto;
+      display: flex;
+      justify-content: center;
+      
+      background-color: cornflowerblue;
+  }
