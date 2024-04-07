@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "./Card";
 import Event from "./Event";
+import "./EventList.css";
 const EventList = (props) => {
     return (
         <>

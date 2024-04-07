@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import Card from './Card';
 import Button from './Button';
+import './AddEvent.css';
 
 const AddEvent = (props) => {
     const [enteredTitle, setTitle] = useState('');
