@@ -4,6 +4,7 @@ import EventList from "@/components/EventList";
 import Header from "@/components/Header";
 import {useState} from 'react';
 import Link from 'next/link';
+import './globals.css';
 
 
 export default function Home() {
