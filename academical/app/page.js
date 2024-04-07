@@ -47,7 +47,7 @@ export default function Home() {
             <Header loggedIn={loggedIn} loginHandler={loginHandler} />
             <EventList events={testEvents} />
             <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
-            <Link href="/delete-event"> <Button>Delete Event</Button> </Link>
+            <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
         </div>
     );   
 }
