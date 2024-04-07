@@ -9,8 +9,8 @@
   
   .button:hover,
   .button:active {
-    background: #19108b;
-    border-color: #2748dd;
+    background: #131188;
+    border-color: #528bf5;
   }
   
   .button:focus {
