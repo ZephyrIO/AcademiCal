@@ -1,7 +1,24 @@
 .title {
     display: inline-block;
+    background-color: white;
+    color: black;
+    width: 100%;
+    text-align: center;
+    height: 75px;
+    line-height: 65px;
 }
 
 .header {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.button {
+    height: 75px;
+    width: 100px;
+    border: 0 none;
+    background-color: cornflowerblue;
+    text-align: center;
 }
