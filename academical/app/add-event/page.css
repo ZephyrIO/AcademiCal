@@ -6,7 +6,7 @@
     padding: 6rem;
     min-height: 100vh;
   }
-  .button {
+  button #AddEvent{
     margin: auto;
     display: flex;
     justify-content: center;
