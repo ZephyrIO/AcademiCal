@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import Card from './Card';
 import Button from './Button';
-import Header from './Header';
 import './AddEvent.css';
+import Link from 'next/link';
 
 const AddEvent = (props) => {
     const [enteredTitle, setTitle] = useState('');
@@ -45,42 +45,46 @@ const AddEvent = (props) => {
     
     return (
         <div className="add-event">
-            <Card>
-                <form onSubmit={addEventHandler}>
-            <label>Title</label>
-            <input
-            id="title"
-            type="text"
-            value={enteredTitle}
-            onChange={setTitleHandler}
-            />
-            <label>Date</label>
-            <input
-            id="date"
-            type="date"
-            value={enteredDate}
-            onChange={setDateHandler}
-            />
-            <label>Description</label>
-            <input
-            id="description"
-            type="text"
-            value={enteredDescription}
-            onChange={setDescriptionHandler}
-            />
-            <label>Link to image</label>
-            <input
-            id="img"
-            type="text"
-            value={enteredImage}
-            onChange={setImageHandler}
-            />
-            
-            
-        </form>
 
-        <Button type="submit" onClick={addEventHandler}>Add Event</Button>
-        
+            <Card>
+
+                <form onSubmit={addEventHandler}>
+
+                    <label>Title</label>
+                    <input
+                    id="title"
+                    type="text"
+                    value={enteredTitle}
+                    onChange={setTitleHandler}
+                    />
+
+                    <label>Date</label>
+                    <input
+                    id="date"
+                    type="date"
+                    value={enteredDate}
+                    onChange={setDateHandler}
+                    />
+
+                    <label>Description</label>
+                    <input
+                    id="description"
+                    type="text"
+                    value={enteredDescription}
+                    onChange={setDescriptionHandler}
+                    />
+
+                    <label>Link to image</label>
+                    <input
+                    id="img"
+                    type="text"
+                    value={enteredImage}
+                    onChange={setImageHandler}
+                    />
+
+                    <Link href="/"> <Button type="submit">Add Event</Button> </Link>
+
+                </form>
         </Card>
             
         </div>
