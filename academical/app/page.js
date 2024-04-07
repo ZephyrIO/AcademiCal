@@ -43,7 +43,7 @@ export default function Home() {
     };
 
     return (
-        <div class="main">  
+        <div className="main">  
             <Header loggedIn={loggedIn} loginHandler={loginHandler} />
             <EventList events={testEvents} />
             <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
