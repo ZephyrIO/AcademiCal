@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import {useState} from 'react';
 import Link from 'next/link';
 import './globals.css';
+import styles from './page.module.css';
 
 
 export default function Home() {
@@ -46,8 +47,10 @@ export default function Home() {
         <div className="main">  
             <Header loggedIn={loggedIn} loginHandler={loginHandler} />
             <EventList events={testEvents} />
-            <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
-            <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
+            <div className={styles.buttonContainer}>
+                <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
+                <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
+            </div>
         </div>
     );   
 }
