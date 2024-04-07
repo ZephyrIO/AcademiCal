@@ -5,19 +5,13 @@ import Link from 'next/link';
 
 export default function Header(props) {
 
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    const loginHandler = () => {
-        setLoggedIn(!loggedIn);
-    };
-
     return (
         <div className="header">
             <Link href="/calendar-view"> <Button>Calendar</Button> </Link>
             <h1 className="title">AcademiCal</h1>
-            {loggedIn ? 
-            <Link href="/"><Button onClick={loginHandler}>Logout</Button></Link> : 
-            <Button onClick={loginHandler}>Login</Button>}
+            {props.loggedIn ? 
+            <Link href="/"><Button onClick={props.loginHandler}>Logout</Button></Link> : 
+            <Button onClick={props.loginHandler}>Login</Button>}
         </div>
     );
 }
