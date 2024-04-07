@@ -10,4 +10,7 @@
     max-width: 500px;
     max-height: 500px;
   }
-  
+
+  .div .Card .add-event-button {
+    margin-top: 10px;
+  }
