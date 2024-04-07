@@ -44,7 +44,7 @@ const AddEvent = (props) => {
     }
     
     return (
-        <div class="add-event">
+        <div className="add-event">
             <Card>
                 <form onSubmit={addEventHandler}>
             <label>Title</label>
