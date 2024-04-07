@@ -76,7 +76,7 @@ const AddEvent = (props) => {
             onChange={setImageHandler}
             />
             
-            <Button type="submit" id="AddEvent" onClick={addEventHandler}>Add Event</Button>
+            <Button type="submit" id="add" onClick={addEventHandler}>Add Event</Button>
         </form>
             </Card>
         </div>

@@ -19,10 +19,11 @@
     padding: 0.15rem;
     margin-bottom: 0.5rem;
   }
-  #AddEvent button {
+  .AddEvent.button {
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+    background-color: cornflowerblue;
   }
