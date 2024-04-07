@@ -20,7 +20,11 @@
     margin-bottom: 0.5rem;
   }
 
+<<<<<<< HEAD
   .add-event button {
+=======
+  .AddEvent .button {
+>>>>>>> 1c6edc22ffebc76651a5edc34e8b8b43a0be6538
     margin: auto;
     display: flex;
     justify-content: center;
