@@ -44,47 +44,43 @@ const AddEvent = (props) => {
     }
     
     return (
-        <div className = "add-event-form">
-            <Card className = "add-event-card">
+        <div class="add-event">
+            <Card>
                 <form onSubmit={addEventHandler}>
-
-                    <label>Title</label>
-                    <input
-                    id="title"
-                    type="text"
-                    value={enteredTitle}
-                    onChange={setTitleHandler}
-                    />
-
-                    <label>Date</label>
-                    <input
-                    id="date"
-                    type="date"
-                    value={enteredDate}
-                    onChange={setDateHandler}
-                    />
-
-                    <label>Description</label>
-                    <input
-                    id="description"
-                    type="text"
-                    value={enteredDescription}
-                    onChange={setDescriptionHandler}
-                    />
-                    
-                    <label>Link to image</label>
-                    <input
-                    id="img"
-                    type="text"
-                    value={enteredImage}
-                    onChange={setImageHandler}
-                    />
-
-                </form>
-
-                <Button type="submit" className = "add-event-button" id="AddEvent" onClick={addEventHandler}>Add Event</Button>
-
-            </Card>
+            <label>Title</label>
+            <input
+            id="title"
+            type="text"
+            value={enteredTitle}
+            onChange={setTitleHandler}
+            />
+            <label>Date</label>
+            <input
+            id="date"
+            type="date"
+            value={enteredDate}
+            onChange={setDateHandler}
+            />
+            <label>Description</label>
+            <input
+            id="description"
+            type="text"
+            value={enteredDescription}
+            onChange={setDescriptionHandler}
+            />
+            <label>Link to image</label>
+            <input
+            id="img"
+            type="text"
+            value={enteredImage}
+            onChange={setImageHandler}
+            />
+            
+            
+        </form>
+        <Button type="submit" onClick={addEventHandler}>Add Event</Button>
+        </Card>
+            
         </div>
     );
 };

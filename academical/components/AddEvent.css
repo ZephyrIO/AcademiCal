@@ -19,8 +19,12 @@
     padding: 0.15rem;
     margin-bottom: 0.5rem;
   }
+<<<<<<< HEAD
 
   .AddEvent.button {
+=======
+  .add-event button{
+>>>>>>> 5f182257aecc98d71306476a118ed37cc81db62b
     margin: auto;
     display: flex;
     justify-content: center;
