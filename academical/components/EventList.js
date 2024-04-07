@@ -6,7 +6,7 @@ const EventList = (props) => {
     return (
         <>
             {props.events.map((event) => (
-                    <Card className="event">
+                <Card key={event.id} className="event">
                     <Event 
                         key={event.id}
                         title = {event.title}
@@ -14,9 +14,9 @@ const EventList = (props) => {
                         description = {event.description}
                         image = {event.image}
                     />
-                    </Card>
-                ))}
-            </>
+                </Card>
+            ))}
+        </>
     );
 };
 
