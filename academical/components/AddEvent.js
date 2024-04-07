@@ -78,7 +78,9 @@ const AddEvent = (props) => {
             
             
         </form>
+
         <Button type="submit" onClick={addEventHandler}>Add Event</Button>
+        
         </Card>
             
         </div>

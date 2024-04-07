@@ -20,7 +20,7 @@
     margin-bottom: 0.5rem;
   }
 
-  .AddEvent.button {
+  .AddEvent .button {
     margin: auto;
     display: flex;
     justify-content: center;
