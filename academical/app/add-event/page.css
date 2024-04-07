@@ -6,12 +6,6 @@
     padding: 6rem;
     min-height: 100vh;
   }
-  button #AddEvent{
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-  }
+
   
   
