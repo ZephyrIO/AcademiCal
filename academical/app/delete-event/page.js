@@ -8,8 +8,8 @@ import Header from '@/components/Header';
 export default function DeleteEventView() {
     return (
         <div>
-            <h1>Delete Event</h1>
+            <Header />
+            <DeleteEvent />
         </div>
-    )
-
+    );
 }
