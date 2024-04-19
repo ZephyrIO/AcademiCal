@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 'use client'
 import { useState } from 'react';
 import DeleteEvent from "@/components/DeleteEvent";
@@ -13,3 +14,5 @@ export default function DeleteEventView() {
         </div>
     );
 }
+=======
+>>>>>>> Stashed changes
