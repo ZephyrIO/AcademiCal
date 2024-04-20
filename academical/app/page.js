@@ -50,9 +50,7 @@ export default function Home() {
             <div className={styles.buttonContainer}>
                 <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
                 <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
-                <Link href={{ pathname: "/delete-event", query: { events: JSON.stringify(events), setEvents: setEvents } }}>
-                    <Button disabled={!loggedIn}>Delete Event</Button>
-                </Link>
+                
             </div>
         </div>
     );   
