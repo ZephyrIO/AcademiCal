@@ -44,7 +44,7 @@ const AddEvent = (props) => {
         setDescription('');
         setImage('');
 
-        axios.post('/calendar/events', eventData)
+        axios.post('http://localhost:8085/calendar/events/', eventData)
             .then(response => {
                 console.log('Event added successfully:', response.data);
                 // Call onAdd with the new event
