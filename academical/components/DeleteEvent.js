@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from './Button';
-
+import './DeleteEvent.css';
 const DeleteEvent = () => {
   const initialEvents = [
     { id: 1, title: 'Event 1' },
@@ -19,7 +19,9 @@ const DeleteEvent = () => {
       {currentEvents && currentEvents.map(event => (
         <div key={event.id}>
           <h2>{event.title}</h2>
+          <div className="delete-button">
           <Button onClick={() => deleteEventHandler(event.id)}>Delete Event</Button>
+          </div>
         </div>
       ))}
     </div>
