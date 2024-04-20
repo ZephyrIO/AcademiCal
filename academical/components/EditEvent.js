@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from './Button';
 import './EditEvent.css';
 
+const axios = require('axios');
 
 const EditEvent = () => {
   const initialEvents = [
