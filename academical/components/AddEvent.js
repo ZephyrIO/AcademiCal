@@ -5,6 +5,8 @@ import Button from './Button';
 import './AddEvent.css';
 import { useRouter } from 'next/navigation'
 
+const axios = require('axios');
+
 const AddEvent = (props) => {
     const [enteredTitle, setTitle] = useState('');
     const [enteredDate, setDate] = useState('');
@@ -26,41 +28,35 @@ const AddEvent = (props) => {
     };
     const addEventHandler = (event) => {
         event.preventDefault();
-        if(title === ''){
-          return;
+        if (title === '') {
+            return;
         }
         const eventData = {
-          id: Math.random().toString(),
-          title: enteredTitle,
-          date: new Date(enteredDate),
-          description: enteredDescription,
-          img: enteredImage
+            id: Math.random().toString(),
+            title: enteredTitle,
+            date: new Date(enteredDate),
+            description: enteredDescription,
+            img: enteredImage
         }
         console.log(eventData);
         setTitle('');
         setDate('');
         setDescription('');
         setImage('');
-      
-        fetch('/calendar/events', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(eventData),
-        })
-        .then(response => response.json())
-        .then(data => {
-          console.log('Event added successfully:', data);
-          props.onAdd(data);
-        })
-        .catch((error) => {
-          console.error('Failed to add event:', error);
-        });
-      
+
+        axios.post('/calendar/events', eventData)
+            .then(response => {
+                console.log('Event added successfully:', response.data);
+                // Call onAdd with the new event
+                // props.onAdd(response.data);
+            })
+            .catch((error) => {
+                console.error('Failed to add event:', error);
+            });
+
         router.push('/');
-      }
-    
+    }
+
     return (
         <div className="add-event">
 
@@ -70,41 +66,41 @@ const AddEvent = (props) => {
 
                     <label>Title</label>
                     <input
-                    id="title"
-                    type="text"
-                    value={enteredTitle}
-                    onChange={setTitleHandler}
+                        id="title"
+                        type="text"
+                        value={enteredTitle}
+                        onChange={setTitleHandler}
                     />
 
                     <label>Date</label>
                     <input
-                    id="date"
-                    type="date"
-                    value={enteredDate}
-                    onChange={setDateHandler}
+                        id="date"
+                        type="date"
+                        value={enteredDate}
+                        onChange={setDateHandler}
                     />
 
                     <label>Description</label>
                     <input
-                    id="description"
-                    type="text"
-                    value={enteredDescription}
-                    onChange={setDescriptionHandler}
+                        id="description"
+                        type="text"
+                        value={enteredDescription}
+                        onChange={setDescriptionHandler}
                     />
 
                     <label>Link to image</label>
                     <input
-                    id="img"
-                    type="text"
-                    value={enteredImage}
-                    onChange={setImageHandler}
+                        id="img"
+                        type="text"
+                        value={enteredImage}
+                        onChange={setImageHandler}
                     />
 
                     <Button type="submit">Add Event</Button>
 
                 </form>
-        </Card>
-            
+            </Card>
+
         </div>
     );
 };
