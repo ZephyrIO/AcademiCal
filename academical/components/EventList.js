@@ -1,23 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import Event from "./Event";
 import "./EventList.css";
-const EventList = (props) => {
-    return (
-        <>
-            {props.events.map((event) => (
-                <Card key={event.id} className="event">
-                    <Event 
-                        key={event.id}
-                        title = {event.title}
-                        date = {event.date}
-                        description = {event.description}
-                        image = {event.image}
-                    />
-                </Card>
-            ))}
-        </>
-    );
+import axios from 'axios';
+
+const EventList = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:8085/calendar/events')
+      .then(response => {
+        console.log('Events fetched successfully:', response.data);
+        setEvents(response.data);
+      })
+      .catch((error) => {
+        console.error('Failed to fetch events:', error);
+      });
+  }, []);
+
+  return (
+    <>
+      {events.map((event) => (
+        <Card key={event._id} className="event">
+          <Event
+            key={event._id}
+            title = {event.title}
+            date = {event.date}
+            description = {event.description}
+            image = {event.image}
+          />
+        </Card>
+      ))}
+    </>
+  );
 };
 
 export default EventList;
