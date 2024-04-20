@@ -8,9 +8,8 @@ export default function AddEventView() {
     const [events, setEvents] = useState([]);
 
     const addEventHandler = (event) => {
-        setEvents([...events, event]);
-
-    };
+        setEvents(prevEvents => [...prevEvents, event]);
+      };
 
     return (
         <div>

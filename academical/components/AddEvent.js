@@ -27,23 +27,39 @@ const AddEvent = (props) => {
     const addEventHandler = (event) => {
         event.preventDefault();
         if(title === ''){
-            return;
+          return;
         }
         const eventData = {
-            id: Math.random().toString(),
-            title: enteredTitle,
-            date: new Date(enteredDate),
-            description: enteredDescription,
-            img: enteredImage
+          id: Math.random().toString(),
+          title: enteredTitle,
+          date: new Date(enteredDate),
+          description: enteredDescription,
+          img: enteredImage
         }
-
         console.log(eventData);
         setTitle('');
         setDate('');
         setDescription('');
         setImage('');
+      
+        fetch('/calendar/events', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(eventData),
+        })
+        .then(response => response.json())
+        .then(data => {
+          console.log('Event added successfully:', data);
+          props.onAdd(data);
+        })
+        .catch((error) => {
+          console.error('Failed to add event:', error);
+        });
+      
         router.push('/');
-    }
+      }
     
     return (
         <div className="add-event">
