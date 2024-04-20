@@ -12,10 +12,9 @@ const EventSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    updatedDate: {
-        type: Date,
-        default: Date.now
-    },
+    image: {
+        type: String
+    }
 });
 
 module.exports = Event = mongoose.model('event', EventSchema);

@@ -9,19 +9,19 @@ const axios = require('axios');
 
 const AddEvent = (props) => {
     const [enteredTitle, setTitle] = useState('');
-    const [enteredDate, setDate] = useState('');
     const [enteredDescription, setDescription] = useState('');
+    const [enteredDate, setDate] = useState('');
     const [enteredImage, setImage] = useState('');
     const router = useRouter();
 
     const setTitleHandler = (event) => {
         setTitle(event.target.value);
     };
-    const setDateHandler = (event) => {
-        setDate(event.target.value);
-    }
     const setDescriptionHandler = (event) => {
         setDescription(event.target.value);
+    };
+    const setDateHandler = (event) => {
+        setDate(event.target.value);
     };
     const setImageHandler = (event) => {
         setImage(event.target.value);
@@ -34,8 +34,8 @@ const AddEvent = (props) => {
         const eventData = {
             id: Math.random().toString(),
             title: enteredTitle,
-            date: new Date(enteredDate),
             description: enteredDescription,
+            date: new Date(enteredDate),
             img: enteredImage
         }
         console.log(eventData);
