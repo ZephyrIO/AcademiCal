@@ -50,7 +50,11 @@ export default function Home() {
             <div className={styles.buttonContainer}>
                 <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
                 <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
+<<<<<<< HEAD
                 <Link href="/edit-event"> <Button disabled={loggedIn}>Edit Event</Button> </Link>
+=======
+                
+>>>>>>> 2207439feaea2680063695b9420177802cf7253e
             </div>
         </div>
     );   
