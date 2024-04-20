@@ -14,7 +14,7 @@ const EventSchema = new mongoose.Schema({
     },
     image: {
         type: String
-    }
+    },
 });
 
 module.exports = Event = mongoose.model('event', EventSchema);
