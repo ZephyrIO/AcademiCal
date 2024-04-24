@@ -41,7 +41,7 @@ const EditEvent = () => {
       .catch((error) => {
         console.error('Failed to update event:', error);
       });
-      router.push('/');
+    router.push('/');
   }
 
   return (
@@ -49,30 +49,34 @@ const EditEvent = () => {
       {currentEvents && currentEvents.map(event => (
         <div key={event._id}>
           {editingEvent && editingEvent._id === event._id ? (
-            <div>
+            <div className='editEvent'>
               <label>Title:</label>
               <input
                 type="text"
                 value={editingEvent.title}
                 onChange={(e) => setEditingEvent({ ...editingEvent, title: e.target.value })}
               />
+              <br />
               <label>Date:</label>
               <input
                 type="date"
                 value={editingEvent.date}
                 onChange={(e) => setEditingEvent({ ...editingEvent, date: e.target.value })}
               />
+              <br />
               <label>Description:</label>
               <textarea
                 value={editingEvent.description}
                 onChange={(e) => setEditingEvent({ ...editingEvent, description: e.target.value })}
               />
+              <br />
               <label>Image URL:</label>
               <input
                 type="text"
-                value={editingEvent.image}
-                onChange={(e) => setEditingEvent({ ...editingEvent, image: e.target.value })}
+                value={editingEvent.img}
+                onChange={(e) => setEditingEvent({ ...editingEvent, img: e.target.value })}
               />
+              <br />
               <Button onClick={() => saveEventHandler(event._id, editingEvent)}>Save</Button>
             </div>
           ) : (
