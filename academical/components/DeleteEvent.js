@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button from './Button';
+import Card from './Card';
+import Event from './Event';
 import './DeleteEvent.css';
 import axios from 'axios';
 import { useRouter } from 'next/navigation'
@@ -38,10 +40,18 @@ const DeleteEvent = () => {
     <div>
       {currentEvents && currentEvents.map(event => (
         <div key={event._id}>
-          <h2>{event.title}</h2>
-          <div className="delete-button">
-            <Button onClick={() => deleteEventHandler(event._id)}>Delete Event</Button>
-          </div>
+          <Card key={event._id} className="event">
+            <Event
+              key={event._id}
+              title={event.title}
+              date={event.date}
+              description={event.description}
+              image={event.img}
+            />
+            <div className="delete-button">
+              <Button onClick={() => deleteEventHandler(event._id)}>Delete Event</Button>
+            </div>
+          </Card>
         </div>
       ))}
     </div>

@@ -8,7 +8,6 @@ export default function DeleteEventView() {
   return (
     <div>
       <Header />
-      <EventList />
       <DeleteEvent />
     </div>
   );
