@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
 import Calendar from '@/components/Calendar';
-import Header from '@/components/Header';
+import HeaderCalendar from '@/components/HeaderCalendar';
 
 const CalendarView = () => {
   return (
     <div>
-      <Header />
+      <HeaderCalendar />
       <h1>Calendar</h1>
       <Calendar />
     </div>
