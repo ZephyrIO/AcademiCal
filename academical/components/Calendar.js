@@ -3,8 +3,8 @@ import { Calendar as BigCalendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import axios from 'axios';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import AddEvent from './AddEvent';
-import EditEvent from './EditEvent';
+import AddEvent from '@/components/AddEvent';
+import EditEvent from '@/components/EditEvent';
 
 const localizer = momentLocalizer(moment);
 
@@ -49,21 +49,10 @@ const Calendar = () => {
         endAccessor="end"
         onSelectSlot={(slotInfo) => openAddEventForm(slotInfo.start)}
         onSelectEvent={(event) => openEditEventForm(event)}
+        
+        toolbar={true}
       />
-      {addEventDate && (
-        <AddEvent
-          date={addEventDate}
-          onClose={closeForm}
-          // pass other props as needed
-        />
-      )}
-      {editEvent && (
-        <EditEvent
-          event={editEvent}
-          onClose={closeForm}
-          // pass other props as needed
-        />
-      )}
+      
     </div>
   );
 };
