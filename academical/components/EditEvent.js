@@ -52,34 +52,36 @@ const EditEvent = () => {
         <div key={event._id}>
           {editingEvent && editingEvent._id === event._id ? (
             <div className='editEvent'>
-              <label>Title:</label>
-              <input
-                type="text"
-                value={editingEvent.title}
-                onChange={(e) => setEditingEvent({ ...editingEvent, title: e.target.value })}
-              />
-              <br />
-              <label>Date:</label>
-              <input
-                type="date"
-                value={editingEvent.date}
-                onChange={(e) => setEditingEvent({ ...editingEvent, date: e.target.value })}
-              />
-              <br />
-              <label>Description:</label>
-              <textarea
-                value={editingEvent.description}
-                onChange={(e) => setEditingEvent({ ...editingEvent, description: e.target.value })}
-              />
-              <br />
-              <label>Image URL:</label>
-              <input
-                type="text"
-                value={editingEvent.img}
-                onChange={(e) => setEditingEvent({ ...editingEvent, img: e.target.value })}
-              />
-              <br />
-              <Button onClick={() => saveEventHandler(event._id, editingEvent)}>Save</Button>
+              <Card key={event._id} className="event">
+                <label>Title:</label>
+                <input
+                  type="text"
+                  value={editingEvent.title}
+                  onChange={(e) => setEditingEvent({ ...editingEvent, title: e.target.value })}
+                />
+                <br />
+                <label>Date:</label>
+                <input
+                  type="date"
+                  value={editingEvent.date}
+                  onChange={(e) => setEditingEvent({ ...editingEvent, date: e.target.value })}
+                />
+                <br />
+                <label>Description:</label>
+                <textarea
+                  value={editingEvent.description}
+                  onChange={(e) => setEditingEvent({ ...editingEvent, description: e.target.value })}
+                />
+                <br />
+                <label>Image URL:</label>
+                <input
+                  type="text"
+                  value={editingEvent.img}
+                  onChange={(e) => setEditingEvent({ ...editingEvent, img: e.target.value })}
+                />
+                <br />
+                <Button onClick={() => saveEventHandler(event._id, editingEvent)}>Save</Button>
+              </Card>
             </div>
           ) : (
             <Card key={event._id} className="event">
