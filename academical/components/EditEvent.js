@@ -39,6 +39,8 @@ const EditEvent = () => {
           return event;
         }));
         setEditingEvent(null);
+        // Call onClose to close the form
+        props.onClose();
       })
       .catch((error) => {
         console.error('Failed to update event:', error);

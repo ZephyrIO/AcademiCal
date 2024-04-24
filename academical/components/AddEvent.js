@@ -29,33 +29,31 @@ const AddEvent = (props) => {
     const addEventHandler = (event) => {
         event.preventDefault();
         if (title === '') {
-            return;
+          return;
         }
         const eventData = {
-            id: Math.random().toString(),
-            title: enteredTitle,
-            description: enteredDescription,
-            date: new Date(enteredDate),
-            img: enteredImage
+          id: Math.random().toString(),
+          title: enteredTitle,
+          description: enteredDescription,
+          date: new Date(enteredDate),
+          img: enteredImage
         }
         console.log(eventData);
         setTitle('');
         setDate('');
         setDescription('');
         setImage('');
-
         axios.post('http://localhost:8085/calendar/events/', eventData)
-            .then(response => {
-                console.log('Event added successfully:', response.data);
-                // Call onAdd with the new event
-                // props.onAdd(response.data);
-            })
-            .catch((error) => {
-                console.error('Failed to add event:', error);
-            });
-
+          .then(response => {
+            console.log('Event added successfully:', response.data);
+            // Call onClose to close the form
+            props.onClose();
+          })
+          .catch((error) => {
+            console.error('Failed to add event:', error);
+          });
         router.push('/');
-    }
+      }
 
     return (
         <div className="add-event">
