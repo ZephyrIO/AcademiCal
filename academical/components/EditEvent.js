@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import Button from './Button';
+import Event from './Event';
+import Card from './Card';
 import './EditEvent.css';
 import axios from 'axios';
 import { useRouter } from 'next/navigation'
@@ -80,12 +82,18 @@ const EditEvent = () => {
               <Button onClick={() => saveEventHandler(event._id, editingEvent)}>Save</Button>
             </div>
           ) : (
-            <div>
-              <h2>{event.title}</h2>
+            <Card key={event._id} className="event">
+              <Event
+                key={event._id}
+                title={event.title}
+                date={event.date}
+                description={event.description}
+                image={event.img}
+              />
               <div className="edit-button">
                 <Button onClick={() => editEventHandler(event._id)}>Edit Event</Button>
               </div>
-            </div>
+            </Card>
           )}
         </div>
       ))}

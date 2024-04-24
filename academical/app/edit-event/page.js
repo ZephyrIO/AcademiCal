@@ -9,7 +9,6 @@ export default function EditEventView() {
     <div>
       <Header />
       <EditEvent />
-      <EventList />
     </div>
   );
 }

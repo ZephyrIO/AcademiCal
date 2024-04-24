@@ -1,5 +1,4 @@
-
-.edit-button button{
+.edit-button button {
     background-color: #9a4adf;
     border: none;
     color: white;
@@ -12,3 +11,9 @@
     cursor: pointer;
 }
 
+.editEvent {
+    display: block;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
