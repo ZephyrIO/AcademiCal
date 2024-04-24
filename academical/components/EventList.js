@@ -24,10 +24,10 @@ const EventList = () => {
         <Card key={event._id} className="event">
           <Event
             key={event._id}
-            title = {event.title}
-            date = {event.date}
-            description = {event.description}
-            image = {event.image}
+            title={event.title}
+            date={event.date}
+            description={event.description}
+            image={event.img}
           />
         </Card>
       ))}
