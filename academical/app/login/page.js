@@ -3,12 +3,13 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Link from 'next/link';
 import Button from '@/components/Button';
+import Login from '@/components/Login';
 
-export default function Login() {
+export default function LoginView() {
     return (
         <div>
             <Header />
-            {/* Insert Login Form Here */}
+            <Login />
             <Link href={'/registration'}><Button>Register</Button></Link>
         </div>
     );

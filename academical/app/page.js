@@ -2,13 +2,16 @@
 import Button from "@/components/Button";
 import EventList from "@/components/EventList";
 import Header from "@/components/Header";
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Link from 'next/link';
 import './globals.css';
 import styles from './page.module.css';
+import UserContext from '../context/UserContext';
+import {useRouter} from 'next/navigation';
 
 
 export default function Home() {
+    const router = useRouter();
     const testEvents = [
         {
             id: '1',
@@ -39,13 +42,38 @@ export default function Home() {
 
     const [loggedIn, setLoggedIn] = useState(false);
 
-    const loginHandler = () => {
-        setLoggedIn(!loggedIn);
-    };
+    useEffect(() => {
+        if (localStorage.getItem('auth-token')) {
+            setLoggedIn(true);
+        }
+    });
+
+    const logoutHandler = () => {
+        setUserData({token: undefined, user: undefined})
+        localStorage.removeItem('auth-token');
+        setLoggedIn(false);
+        router.push('/');
+    }
+
+    const test = () => {
+        // setUserData({token: undefined, user: undefined})
+        // localStorage.removeItem('auth-token');
+        // setLoggedIn(false);
+        console.log(loggedIn)
+        console.log(userData)
+        if (loggedIn) {
+            console.log(userData.token)
+        }
+    }
+
+
+    const [userData, setUserData] = useState(null);
 
     return (
+        <UserContext.Provider value={{userData, setUserData}}>
         <div className="main">  
-            <Header loggedIn={loggedIn} loginHandler={loginHandler} />
+        <Header userData={userData} logoutHandler={logoutHandler}/>
+        <Button onClick={test}>Test</Button>
             <EventList events={testEvents} />
             <div className={styles.buttonContainer}>
                 <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
@@ -55,5 +83,6 @@ export default function Home() {
 
             </div>
         </div>
+        </UserContext.Provider>
     );   
 }
