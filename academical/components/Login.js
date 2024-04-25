@@ -7,10 +7,10 @@ import { useRouter } from 'next/navigation';
 const Login = () => {
     const { userData, setUserData } = useContext(UserContext);
     const router = useRouter();
-    const [loggedIn, setLoggedIn] = useState(false);
+    let isLoggedIn = false;
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && userData.token) {
+        if (typeof window !== 'undefined' && isLoggedIn) {
             router.push('/');
         }
     }, [userData.token, router]);
@@ -38,7 +38,7 @@ const Login = () => {
                 user: response.data.user,
             });
             localStorage.setItem('auth-token', response.data.token);
-            setIsLoggedIn(true);
+            isLoggedIn = true;
             router.push('/');
         } catch (err) {
             console.error('Login failed: ', err);
