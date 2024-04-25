@@ -8,6 +8,7 @@ export default function Login() {
     return (
         <div>
             <Header />
+            {/* Insert Login Form Here */}
             <Link href={'/registration'}><Button>Register</Button></Link>
         </div>
     );
