@@ -78,7 +78,7 @@ export default function Home() {
         <div className="main">  
         
         <Header userData={userData} logoutHandler={logoutHandler} isLoggedIn={loggedIn} handleLogin={handleLogin}/>
-        <Button onClick={test}>Test</Button>
+        {/* <Button onClick={test}>Test</Button> */}
             <EventList events={testEvents} />
             <div className={styles.buttonContainer}>
                 <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
