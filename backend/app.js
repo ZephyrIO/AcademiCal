@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8085;
@@ -10,6 +11,8 @@ app.use(express.json({extended: false}));
 const events = require('./routes/calendar/events');
 app.use('/calendar/events', events);
 
+const users = require('./routes/auth/users');
+app.use('/auth/users', users);
 
 const conn_str = 'mongodb+srv://lukedinkla:acidemicaliscool@acidemical.dis5yzb.mongodb.net/?retryWrites=true&w=majority&appName=acidemical';
 mongoose.set('strictQuery', false);

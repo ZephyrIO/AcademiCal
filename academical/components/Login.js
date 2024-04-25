@@ -1,14 +1,16 @@
-import { useState, useContext, useEffect } from 'react';
+'use client';
+import { useState, useContext, useEffect} from 'react';
 import axios from 'axios';
 import UserContext from '../context/UserContext';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
-    const router = useRouter();
     const { userData, setUserData } = useContext(UserContext);
+    const router = useRouter();
+    const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        if (userData.token) {
+        if (typeof window !== 'undefined' && userData.token) {
             router.push('/');
         }
     }, [userData.token, router]);
@@ -29,17 +31,23 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const respone = await axios.post('http://localhost:8085/users/login', formData);
+            const response = await axios.post('http://localhost:8085/auth/users/login', formData);
+            console.log(response.data)
             setUserData({
-                token: respone.data.token,
-                user: respone.data.user,
+                token: response.data.token,
+                user: response.data.user,
             });
-            localStorage.setItem('auth-token', respone.data.token);
+            localStorage.setItem('auth-token', response.data.token);
+            setIsLoggedIn(true);
             router.push('/');
         } catch (err) {
             console.error('Login failed: ', err);
         }
     };
+
+    useEffect(() => {
+        console.log(userData);
+    }, [userData]);
 
     return (
         <div>
