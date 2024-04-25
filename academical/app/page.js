@@ -42,6 +42,10 @@ export default function Home() {
 
     const [loggedIn, setLoggedIn] = useState(false);
 
+    const handleLogin = (status) => {
+        setLoggedIn(status);
+    };
+
     useEffect(() => {
         if (localStorage.getItem('auth-token')) {
             setLoggedIn(true);
@@ -49,7 +53,7 @@ export default function Home() {
     });
 
     const logoutHandler = () => {
-        setUserData({token: undefined, user: undefined})
+        setUserData({token: null, user: null})
         localStorage.removeItem('auth-token');
         setLoggedIn(false);
         router.push('/');
@@ -72,7 +76,8 @@ export default function Home() {
     return (
         <UserContext.Provider value={{userData, setUserData}}>
         <div className="main">  
-        <Header userData={userData} logoutHandler={logoutHandler}/>
+        
+        <Header userData={userData} logoutHandler={logoutHandler} isLoggedIn={loggedIn} handleLogin={handleLogin}/>
         <Button onClick={test}>Test</Button>
             <EventList events={testEvents} />
             <div className={styles.buttonContainer}>

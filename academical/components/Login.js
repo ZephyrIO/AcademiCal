@@ -12,8 +12,6 @@ const Login = () => {
     useEffect(() => {
         if (typeof window !== 'undefined' && userData.token) {
             router.push('/');
-        } else {
-            setLoggedIn(false);
         }
     }, [userData.token, router]);
 
@@ -40,6 +38,7 @@ const Login = () => {
                 user: response.data.user,
             });
             localStorage.setItem('auth-token', response.data.token);
+            setIsLoggedIn(true);
             router.push('/');
         } catch (err) {
             console.error('Login failed: ', err);
