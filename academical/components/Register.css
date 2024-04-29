@@ -37,11 +37,6 @@ div.Register {
   }
   
 
-  .Register:hover {
-    background-color: #0056b3;
-  }
-  
-
   .Register-title {
     color: #000000; 
     font-size: 24px; 
