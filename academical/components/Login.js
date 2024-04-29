@@ -1,5 +1,4 @@
-'use client';
-import { useState, useContext, useEffect} from 'react';
+import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import UserContext from '../context/UserContext';
 import { useRouter } from 'next/navigation';
@@ -72,15 +71,15 @@ const Login = () => {
                     value={formData.password}
                     onChange={handleChange}
                 />
-               <div className="button-group">
-                <button type="submit" className="login">Login</button>
-                <button type="button" className="register" onClick={() => router.push('/registration')}>Register</button>
-            </div>
-                
+                <div className="button-group">
+                    <button type="submit" className="login">Login</button>
+                    <button type="button" className="register" onClick={() => router.push('/registration')}>Register</button>
+                </div>
+
             </form>
-            
+
             {error && <p>{error}</p>}
-            
+
         </div>
     );
 };
