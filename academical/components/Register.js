@@ -25,6 +25,7 @@ const Register = () => {
         e.preventDefault();
 
         try {
+            // console.log(form);
             await axios.post('http://localhost:8085/auth/users/register', form);
             const data = await axios.post('http://localhost:8085/auth/users/login', {
                 email: form.email,
@@ -37,8 +38,9 @@ const Register = () => {
             localStorage.setItem('auth-token', data.token);
             router.push('/')
         } catch (err) {
-            console.error(err);
-            // console.log(err.response.data.message)
+            console.error(err.response.data.msg);
+            alert(err.response.data.msg)
+            // console.log(err)
         }
     };
 
