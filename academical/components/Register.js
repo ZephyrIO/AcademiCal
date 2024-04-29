@@ -2,6 +2,7 @@ import {useState, useContext} from 'react';
 import axios from 'axios';
 import UserContext from '@/context/UserContext';
 import {useRouter} from 'next/navigation';
+import './Register.css';
 
 const Register = () => {
     const { setUserData } = useContext(UserContext);
@@ -45,13 +46,16 @@ const Register = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
-            <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} />
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" value={form.confirmPassword} onChange={handleChange} />
-            <input type="text" name="username" placeholder="username" value={form.username} onChange={handleChange} />
-            <button type="submit">Register</button>
-        </form>
+        <div classname ="Register">
+            <h2 className="Register-title">Register</h2>
+                <form onSubmit={handleSubmit}>
+                    <input type="email" name="email" placeholder="Email" value={form.email} onChange={handleChange} />
+                    <input type="password" name="password" placeholder="Password" value={form.password} onChange={handleChange} />
+                    <input type="password" name="confirmPassword" placeholder="Confirm Password" value={form.confirmPassword} onChange={handleChange} />
+                    <input type="text" name="username" placeholder="username" value={form.username} onChange={handleChange} />
+                    <button type="submit" className="Register">Register</button>
+                </form>
+        </div>
     );
 };
 
