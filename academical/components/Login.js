@@ -3,6 +3,7 @@ import { useState, useContext, useEffect} from 'react';
 import axios from 'axios';
 import UserContext from '../context/UserContext';
 import { useRouter } from 'next/navigation';
+import './Login.css';
 
 const Login = () => {
     const { userData, setUserData } = useContext(UserContext);
