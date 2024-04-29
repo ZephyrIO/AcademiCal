@@ -1,15 +1,13 @@
 import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import UserContext from '../context/UserContext';
+import UserContext from '@/context/UserContext';
 import { useRouter } from 'next/navigation';
 import './Login.css';
-
-import Link from 'next/link';
-import Button from '@/components/Button';
 
 const Login = () => {
     const { userData, setUserData } = useContext(UserContext);
     const router = useRouter();
+    const [error, setError] = useState('');
     let isLoggedIn = false;
 
     useEffect(() => {
@@ -22,7 +20,6 @@ const Login = () => {
         email: '',
         password: '',
     });
-    const [error, setError] = useState('');
 
     const handleChange = (e) => {
         setFormData({

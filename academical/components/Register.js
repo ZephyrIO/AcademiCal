@@ -1,13 +1,14 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import UserContext from '@/context/UserContext';
 import { useRouter } from 'next/navigation';
 import './Register.css';
 
 const Register = () => {
-    const { setUserData } = useContext(UserContext);
+    const { userData, setUserData } = useContext(UserContext);
     const router = useRouter();
     const [error, setError] = useState('');
+    let isLoggedIn = false;
 
     const [form, setForm] = useState({
         email: '',
