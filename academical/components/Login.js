@@ -3,7 +3,7 @@ import { useState, useContext, useEffect} from 'react';
 import axios from 'axios';
 import UserContext from '../context/UserContext';
 import { useRouter } from 'next/navigation';
-
+import './Login.css';
 const Login = () => {
     const { userData, setUserData } = useContext(UserContext);
     const router = useRouter();
@@ -50,8 +50,8 @@ const Login = () => {
     }, [userData]);
 
     return (
-        <div>
-            <h2>Login</h2>
+        <div className="login">
+            <h2 className="login-title">Login</h2>
             <form onSubmit={handleLogin}>
                 <input
                     type="email"
@@ -67,7 +67,7 @@ const Login = () => {
                     value={formData.password}
                     onChange={handleChange}
                 />
-                <button type="submit">Login</button>
+                <button type="submit" className="login">Login</button>
             </form>
             {error && <p>{error}</p>}
         </div>
