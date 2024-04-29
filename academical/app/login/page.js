@@ -10,7 +10,7 @@ export default function LoginView() {
         <div>
             <Header />
             <Login />
-            <Link href={'/registration'}><Button>Register</Button></Link>
+           
         </div>
     );
 }

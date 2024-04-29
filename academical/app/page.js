@@ -2,12 +2,12 @@
 import Button from "@/components/Button";
 import EventList from "@/components/EventList";
 import Header from "@/components/Header";
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import './globals.css';
 import styles from './page.module.css';
 import UserContext from '../context/UserContext';
-import {useRouter} from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 
 export default function Home() {
@@ -35,7 +35,7 @@ export default function Home() {
             image: 'https://news.harvard.edu/wp-content/uploads/2022/11/iStock-mathproblems.jpg'
         }
     ];
-    const  [events, setEvents] = useState(testEvents);
+    const [events, setEvents] = useState(testEvents);
     const addEventHandler = (event) => {
         setEvents([...events, event]);
     };
@@ -53,7 +53,7 @@ export default function Home() {
     });
 
     const logoutHandler = () => {
-        setUserData({token: null, user: null})
+        setUserData({ token: null, user: null })
         localStorage.removeItem('auth-token');
         setLoggedIn(false);
         router.push('/');
@@ -74,20 +74,19 @@ export default function Home() {
     const [userData, setUserData] = useState(null);
 
     return (
-        <UserContext.Provider value={{userData, setUserData}}>
-        <div className="main">  
-        
-        <Header userData={userData} logoutHandler={logoutHandler} isLoggedIn={loggedIn} handleLogin={handleLogin}/>
-        {/* <Button onClick={test}>Test</Button> */}
-            <EventList events={testEvents} />
-            <div className={styles.buttonContainer}>
-                <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
-                <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
+        <UserContext.Provider value={{ userData, setUserData }}>
+            <div className="main">
 
-                <Link href="/edit-event"> <Button disabled={loggedIn}>Edit Event</Button> </Link>
+                <Header userData={userData} logoutHandler={logoutHandler} isLoggedIn={loggedIn} handleLogin={handleLogin} />
+                <div className={styles.buttonContainer}>
+                    <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
+                    <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
 
+                    <Link href="/edit-event"> <Button disabled={loggedIn}>Edit Event</Button> </Link>
+
+                </div>
+                <EventList events={testEvents} />
             </div>
-        </div>
         </UserContext.Provider>
-    );   
+    );
 }

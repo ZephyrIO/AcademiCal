@@ -5,6 +5,9 @@ import UserContext from '../context/UserContext';
 import { useRouter } from 'next/navigation';
 import './Login.css';
 
+import Link from 'next/link';
+import Button from '@/components/Button';
+
 const Login = () => {
     const { userData, setUserData } = useContext(UserContext);
     const router = useRouter();
@@ -69,9 +72,15 @@ const Login = () => {
                     value={formData.password}
                     onChange={handleChange}
                 />
+               <div className="button-group">
                 <button type="submit" className="login">Login</button>
+                <button type="button" className="register" onClick={() => router.push('/registration')}>Register</button>
+            </div>
+                
             </form>
+            
             {error && <p>{error}</p>}
+            
         </div>
     );
 };
