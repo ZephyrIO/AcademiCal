@@ -43,6 +43,7 @@ const Login = () => {
             router.push('/');
         } catch (err) {
             console.error('Login failed: ', err);
+            alert(err.response.data.msg);
         }
     };
 
@@ -51,8 +52,8 @@ const Login = () => {
     }, [userData]);
 
     return (
-        <div>
-            <h2>Login</h2>
+        <div className="login">
+            <h2 className="login-title">Login</h2>
             <form onSubmit={handleLogin}>
                 <input
                     type="email"
@@ -68,7 +69,7 @@ const Login = () => {
                     value={formData.password}
                     onChange={handleChange}
                 />
-                <button type="submit">Login</button>
+                <button type="submit" className="login">Login</button>
             </form>
             {error && <p>{error}</p>}
         </div>

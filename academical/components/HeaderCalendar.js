@@ -18,7 +18,7 @@ export default function HeaderCalendar({ userData, logoutHandler, isLoggedIn, ha
     return (
         <div className="header">
             <Link href="/"> <Button>Home</Button> </Link>
-            <h1 className="title">AcademiCal</h1>
+            <h1 className="title"><Link href="/">AcademiCal</Link></h1>
             {isLoggedIn ? (
                 <Link href="/"><Button onClick={logoutHandler}>Logout</Button></Link>) : (
                 <Link href="/login"><Button>Login</Button></Link>)}
