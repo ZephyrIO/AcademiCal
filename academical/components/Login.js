@@ -42,6 +42,7 @@ const Login = () => {
             router.push('/');
         } catch (err) {
             console.error('Login failed: ', err);
+            alert(err.response.data.msg);
         }
     };
 
