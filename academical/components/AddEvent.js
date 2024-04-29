@@ -48,11 +48,12 @@ const AddEvent = (props) => {
             console.log('Event added successfully:', response.data);
             // Call onClose to close the form
             props.onClose();
+            router.push('/');
           })
           .catch((error) => {
-            console.error('Failed to add event:', error);
+            alert(error.response.data.msg);
+            console.error('Error adding event:', error);
           });
-        router.push('/');
       }
 
     return (

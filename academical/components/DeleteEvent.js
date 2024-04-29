@@ -28,12 +28,13 @@ const DeleteEvent = () => {
       .then(response => {
         console.log('Event deleted successfully:', response.data);
         setEvents(prevEvents => prevEvents.filter(event => event._id !== id));
+        router.push('/');
       })
       .catch((error) => {
+        alert(error.response.data.msg);
         console.error('Failed to delete event:', error);
       });
 
-    router.push('/');
   };
 
   return (

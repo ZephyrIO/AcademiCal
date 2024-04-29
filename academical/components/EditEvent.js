@@ -41,11 +41,12 @@ const EditEvent = () => {
         setEditingEvent(null);
         // Call onClose to close the form
         props.onClose();
+        router.push('/');
       })
       .catch((error) => {
+        alert(error.response.data.msg);
         console.error('Failed to update event:', error);
       });
-    router.push('/');
   }
 
   return (
