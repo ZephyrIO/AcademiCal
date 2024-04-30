@@ -24,7 +24,11 @@ const DeleteEvent = () => {
 
 
   const deleteEventHandler = (id) => {
-    axios.delete(`http://localhost:8085/calendar/events/${id}`)
+    axios.delete(`http://localhost:8085/calendar/events/${id}`, {
+      headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('auth-token')
+      }
+})
       .then(response => {
         console.log('Event deleted successfully:', response.data);
         setEvents(prevEvents => prevEvents.filter(event => event._id !== id));

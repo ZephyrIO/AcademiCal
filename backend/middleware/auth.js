@@ -12,7 +12,7 @@ const auth = async (req, res, next) => {
         const token2 = token.split(' ')[1];
         if (!token2) return res.status(401).json({ msg: 'No token after Bearer, authorization denied.' });
 
-        const verified = jwt.verify(token, JWT_SECRET);
+        const verified = jwt.verify(token2, JWT_SECRET);
         if (!verified) return res.status(401).json({ msg: 'Token verification failed, authorization denied.' });
 
         req.user = verified.id;

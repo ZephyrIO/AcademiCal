@@ -29,7 +29,11 @@ const EditEvent = () => {
   }
 
   const saveEventHandler = (id, updatedEvent) => {
-    axios.put(`http://localhost:8085/calendar/events/${id}`, updatedEvent)
+    axios.put(`http://localhost:8085/calendar/events/${id}`, updatedEvent, {
+      headers: {
+              'Authorization': 'Bearer ' + localStorage.getItem('auth-token')
+      }
+})
       .then(response => {
         console.log('Event updated successfully:', response.data);
         setEvents(prevEvents => prevEvents.map(event => {
@@ -44,8 +48,13 @@ const EditEvent = () => {
         router.push('/');
       })
       .catch((error) => {
-        alert(error.response.data.msg);
-        console.error('Failed to update event:', error);
+        if (error.response) {
+          alert(error.response.data.msg);
+          console.error('Failed to update event:', error);
+        } else {
+          console.error('Failed to update event:', error);
+          router.push('/')
+        }
       });
   }
 

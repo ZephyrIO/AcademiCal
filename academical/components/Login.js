@@ -8,10 +8,9 @@ const Login = () => {
     const { userData, setUserData } = useContext(UserContext);
     const router = useRouter();
     const [error, setError] = useState('');
-    let isLoggedIn = false;
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && isLoggedIn) {
+        if (userData.token) {
             router.push('/');
         }
     }, [userData.token, router]);
@@ -38,14 +37,12 @@ const Login = () => {
                 user: response.data.user,
             });
             localStorage.setItem('auth-token', response.data.token);
-            isLoggedIn = true;
             router.push('/');
         } catch (err) {
             console.error('Login failed: ', err);
             alert(err.response.data.msg);
         }
     };
-
     useEffect(() => {
         console.log(userData);
     }, [userData]);

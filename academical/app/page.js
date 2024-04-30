@@ -40,49 +40,26 @@ export default function Home() {
         setEvents([...events, event]);
     };
 
-    const [loggedIn, setLoggedIn] = useState(false);
-
-    const handleLogin = (status) => {
-        setLoggedIn(status);
-    };
-
-    useEffect(() => {
-        if (localStorage.getItem('auth-token')) {
-            setLoggedIn(true);
-        }
-    });
-
     const logoutHandler = () => {
-        setUserData({ token: null, user: null })
         localStorage.removeItem('auth-token');
-        setLoggedIn(false);
+        setUserData(null);
         router.push('/');
     }
 
-    const test = () => {
-        // setUserData({token: undefined, user: undefined})
-        // localStorage.removeItem('auth-token');
-        // setLoggedIn(false);
-        console.log(loggedIn)
-        console.log(userData)
-        if (loggedIn) {
-            console.log(userData.token)
-        }
-    }
 
 
-    const [userData, setUserData] = useState(null);
+    const [userData, setUserData] = useState(undefined);
 
     return (
         <UserContext.Provider value={{ userData, setUserData }}>
             <div className="main">
 
-                <Header userData={userData} logoutHandler={logoutHandler} isLoggedIn={loggedIn} handleLogin={handleLogin} />
+                <Header logoutHandler={logoutHandler} />
                 <div className={styles.buttonContainer}>
-                    <Link href="/add-event"> <Button disabled={loggedIn}>Add Event</Button> </Link>
-                    <Link href="/delete-event"> <Button disabled={loggedIn}>Delete Event</Button> </Link>
+                    <Link href="/add-event"> <Button disabled={userData ? true: false}>Add Event</Button> </Link>
+                    <Link href="/delete-event"> <Button disabled={userData ? true: false}>Delete Event</Button> </Link>
 
-                    <Link href="/edit-event"> <Button disabled={loggedIn}>Edit Event</Button> </Link>
+                    <Link href="/edit-event"> <Button disabled={userData ? true: false}>Edit Event</Button> </Link>
 
                 </div>
                 <EventList events={testEvents} />

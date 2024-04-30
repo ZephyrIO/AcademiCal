@@ -7,7 +7,7 @@ export const UserProvider = ({ children }) => {
         token: undefined,
         user: undefined,
     });
-    
+
     useEffect(() => {
         const token = localStorage.getItem('auth-token');
         if (token) {
@@ -17,9 +17,9 @@ export const UserProvider = ({ children }) => {
             }));
         }
     }, []);
-    
+
     return (
-        <UserContext.Provider value={{ userData, setUserData }}>
+        <UserContext.Provider value={{ userData, setUserData, isLoggedIn, setIsLoggedIn }}>
         {children}
         </UserContext.Provider>
     );

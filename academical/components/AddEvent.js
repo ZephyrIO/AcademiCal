@@ -43,17 +43,26 @@ const AddEvent = (props) => {
         setDate('');
         setDescription('');
         setImage('');
-        axios.post('http://localhost:8085/calendar/events/', eventData)
-          .then(response => {
-            console.log('Event added successfully:', response.data);
-            // Call onClose to close the form
-            props.onClose();
-            router.push('/');
-          })
-          .catch((error) => {
-            alert(error.response.data.msg);
-            console.error('Error adding event:', error);
-          });
+        axios.post('http://localhost:8085/calendar/events/', eventData, {
+                headers: {
+                        'Authorization': 'Bearer ' + localStorage.getItem('auth-token')
+                }
+        })
+            .then(response => {
+                console.log('Event added successfully:', response.data);
+                // Call onClose to close the form
+                props.onClose();
+                router.push('/');
+            })
+            .catch((error) => {
+                if (error.response) {
+                    alert(error.response.data.msg);
+                    console.error('Error adding event:', error);
+                } else {
+                    console.error('error adding event:', error)
+                    router.push('/')
+                }
+            });
       }
 
     return (
